@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>de.freese</groupId>
+        <artifactId>maven-parent</artifactId>
+        <version>0.0.1</version>
+    </parent>
+
+    <artifactId>binding</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <name>${project.groupId} - ${project.artifactId}</name>
+    <description>An alternative for Swing like the Binding in JavaFX.</description>
+    <url>https://github.com/tfreese/binding</url>
+    <inceptionYear>2018</inceptionYear>
+
+    <organization>
+        <name>Thomas Freese</name>
+        <url>https://github.com/tfreese/binding</url>
+    </organization>
+    
+    <scm>
+        <url>${project.url}</url>
+        <connection>scm:git:git://github.com/tfreese/binding.git</connection>
+        <developerConnection>scm:git:https://github.com/tfreese/binding.git</developerConnection>
+    </scm>
+
+    <build>
+        <plugins>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <!-- compile scope -->
+        <!-- runtime scope -->
+        <!-- provided scope -->
+        <!-- test scope -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${version:junit:junit}</version>
+			<scope>test</scope>
+		</dependency>        
+    </dependencies>
+
+</project>
