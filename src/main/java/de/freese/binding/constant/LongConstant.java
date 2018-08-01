@@ -4,34 +4,34 @@
 
 package de.freese.binding.constant;
 
-import de.freese.binding.expression.AbstractBooleanExpression;
+import de.freese.binding.expression.AbstractLongExpression;
 import de.freese.binding.value.ChangeListener;
 
 /**
  * @author Thomas Freese
  */
-public class BooleanConstant extends AbstractBooleanExpression
+public class LongConstant extends AbstractLongExpression
 {
     /**
-     * @param value boolean
-     * @return {@link BooleanConstant}
+     * @param value long
+     * @return {@link LongConstant}
      */
-    public static BooleanConstant valueOf(final boolean value)
+    public static LongConstant valueOf(final long value)
     {
-        return new BooleanConstant(value);
+        return new LongConstant(value);
     }
 
     /**
      *
      */
-    private final boolean value;
+    private final long value;
 
     /**
-     * Erstellt ein neues {@link BooleanConstant} Object.
+     * Erstellt ein neues {@link LongConstant} Object.
      *
-     * @param value boolean}
+     * @param value long
      */
-    private BooleanConstant(final boolean value)
+    private LongConstant(final long value)
     {
         super();
 
@@ -42,7 +42,7 @@ public class BooleanConstant extends AbstractBooleanExpression
      * @see de.freese.binding.expression.AbstractExpression#addListener(de.freese.binding.value.ChangeListener)
      */
     @Override
-    public void addListener(final ChangeListener<? super Boolean> listener)
+    public void addListener(final ChangeListener<? super Long> listener)
     {
         // NO-OP
     }
@@ -51,7 +51,7 @@ public class BooleanConstant extends AbstractBooleanExpression
      * @see de.freese.binding.expression.AbstractExpression#fireValueChangedEvent(java.lang.Object, java.lang.Object)
      */
     @Override
-    protected void fireValueChangedEvent(final Boolean oldValue, final Boolean newValue)
+    protected void fireValueChangedEvent(final Long oldValue, final Long newValue)
     {
         // NO-OP
     }
@@ -60,7 +60,7 @@ public class BooleanConstant extends AbstractBooleanExpression
      * @see de.freese.binding.value.ObservableValue#getValue()
      */
     @Override
-    public Boolean getValue()
+    public Long getValue()
     {
         return this.value;
     }
@@ -69,7 +69,7 @@ public class BooleanConstant extends AbstractBooleanExpression
      * @see de.freese.binding.expression.AbstractExpression#removeListener(de.freese.binding.value.ChangeListener)
      */
     @Override
-    public void removeListener(final ChangeListener<? super Boolean> listener)
+    public void removeListener(final ChangeListener<? super Long> listener)
     {
         // NO-OP
     }

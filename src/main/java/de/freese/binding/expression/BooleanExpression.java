@@ -6,6 +6,7 @@ package de.freese.binding.expression;
 
 import de.freese.binding.Bindings;
 import de.freese.binding.binds.BooleanBinding;
+import de.freese.binding.constant.BooleanConstant;
 import de.freese.binding.value.ObservableBooleanValue;
 
 /**
@@ -14,12 +15,21 @@ import de.freese.binding.value.ObservableBooleanValue;
 public interface BooleanExpression extends ObservableBooleanValue
 {
     /**
-     * @param observable {@link ObservableBooleanValue}
+     * @param value boolean
      * @return {@link BooleanBinding}
      */
-    public default BooleanBinding and(final ObservableBooleanValue observable)
+    public default BooleanBinding and(final boolean value)
     {
-        return Bindings.and(this, observable);
+        return Bindings.and(this, BooleanConstant.valueOf(value));
+    }
+
+    /**
+     * @param other {@link ObservableBooleanValue}
+     * @return {@link BooleanBinding}
+     */
+    public default BooleanBinding and(final ObservableBooleanValue other)
+    {
+        return Bindings.and(this, other);
     }
 
     /**
@@ -31,11 +41,20 @@ public interface BooleanExpression extends ObservableBooleanValue
     }
 
     /**
-     * @param observable {@link ObservableBooleanValue}
+     * @param value boolean
      * @return {@link BooleanBinding}
      */
-    public default BooleanBinding or(final ObservableBooleanValue observable)
+    public default BooleanBinding or(final boolean value)
     {
-        return Bindings.or(this, observable);
+        return Bindings.or(this, BooleanConstant.valueOf(value));
+    }
+
+    /**
+     * @param other {@link ObservableBooleanValue}
+     * @return {@link BooleanBinding}
+     */
+    public default BooleanBinding or(final ObservableBooleanValue other)
+    {
+        return Bindings.or(this, other);
     }
 }

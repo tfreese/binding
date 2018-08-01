@@ -16,18 +16,18 @@ import de.freese.binding.value.ObservableValue;
  */
 public interface Binding<T> extends ObservableValue<T>
 {
-    /**
-     * Registrieren des Bindings an den Dependencies.
-     *
-     * @param dependencies {@link ObservableValue}
-     */
-    @SuppressWarnings("unchecked")
-    public void bind(ObservableValue<? extends Object>...dependencies);
+    // /**
+    // * Registrieren des Bindings an den Dependencies.
+    // *
+    // * @param dependencies {@link ObservableValue}
+    // */
+    // @SuppressWarnings("unchecked")
+    // public void bind(ObservableValue<? extends Object>...dependencies);
 
-    /**
-     * De-Register von aktuellen Listenern.
-     */
-    public void unbind();
+    // /**
+    // * De-Register von aktuellen Listenern.
+    // */
+    // public void unbind();
 
     /**
      * Aktualisiert das Value durch die Werte der registrierten {@link Property}<br>

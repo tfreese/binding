@@ -5,6 +5,8 @@
 package de.freese.binding.expression;
 
 import de.freese.binding.Bindings;
+import de.freese.binding.binds.BooleanBinding;
+import de.freese.binding.binds.IntegerBinding;
 import de.freese.binding.binds.StringBinding;
 import de.freese.binding.constant.StringConstant;
 import de.freese.binding.value.ObservableStringValue;
@@ -15,12 +17,12 @@ import de.freese.binding.value.ObservableStringValue;
 public interface StringExpression extends ObservableStringValue
 {
     /**
-     * @param observable {@link ObservableStringValue}
+     * @param other {@link ObservableStringValue}
      * @return {@link StringBinding}
      */
-    public default StringBinding concat(final ObservableStringValue observable)
+    public default StringBinding concat(final ObservableStringValue other)
     {
-        return Bindings.concat(this, observable);
+        return Bindings.concat(this, other);
     }
 
     /**
@@ -42,5 +44,29 @@ public interface StringExpression extends ObservableStringValue
         final String value = getValue();
 
         return value == null ? "" : value;
+    }
+
+    /**
+     * @return {@link BooleanBinding}
+     */
+    public default BooleanBinding isEmpty()
+    {
+        return Bindings.isEmpty(this);
+    }
+
+    /**
+     * @return {@link BooleanBinding}
+     */
+    public default BooleanBinding isNotEmpty()
+    {
+        return Bindings.isNotEmpty(this);
+    }
+
+    /**
+     * @return {@link IntegerBinding}
+     */
+    public default IntegerBinding length()
+    {
+        return Bindings.length(this);
     }
 }

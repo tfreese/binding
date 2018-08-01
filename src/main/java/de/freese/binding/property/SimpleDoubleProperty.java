@@ -7,7 +7,7 @@ package de.freese.binding.property;
 /**
  * @author Thomas Freese
  */
-public class SimpleBooleanProperty extends AbstractBooleanProperty
+public class SimpleDoubleProperty extends AbstractDoubleProperty
 {
     /**
     *
@@ -20,32 +20,32 @@ public class SimpleBooleanProperty extends AbstractBooleanProperty
     private final String name;
 
     /**
-     * Erstellt ein neues {@link SimpleBooleanProperty} Object.
+     * Erstellt ein neues {@link SimpleDoubleProperty} Object.
      */
-    public SimpleBooleanProperty()
+    public SimpleDoubleProperty()
     {
-        this(null, null, false);
+        this(null, null, 0.0D);
     }
 
     /**
-     * Erstellt ein neues {@link SimpleBooleanProperty} Object.
+     * Erstellt ein neues {@link SimpleDoubleProperty} Object.
      *
      * @param bean Object
      * @param name String
      */
-    public SimpleBooleanProperty(final Object bean, final String name)
+    public SimpleDoubleProperty(final Object bean, final String name)
     {
-        this(bean, name, false);
+        this(bean, name, 0.0D);
     }
 
     /**
-     * Erstellt ein neues {@link SimpleBooleanProperty} Object.
+     * Erstellt ein neues {@link SimpleDoubleProperty} Object.
      *
      * @param bean Object
      * @param name String
-     * @param initialValue boolean
+     * @param initialValue double
      */
-    public SimpleBooleanProperty(final Object bean, final String name, final boolean initialValue)
+    public SimpleDoubleProperty(final Object bean, final String name, final double initialValue)
     {
         super();
 
