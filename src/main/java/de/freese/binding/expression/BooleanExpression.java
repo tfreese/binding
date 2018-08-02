@@ -35,6 +35,22 @@ public interface BooleanExpression extends ObservableBooleanValue
     /**
      * @return {@link BooleanBinding}
      */
+    public default BooleanBinding isNotNull()
+    {
+        return Bindings.isNotNull(this);
+    }
+
+    /**
+     * @return {@link BooleanBinding}
+     */
+    public default BooleanBinding isNull()
+    {
+        return Bindings.isNull(this);
+    }
+
+    /**
+     * @return {@link BooleanBinding}
+     */
     public default BooleanBinding not()
     {
         return Bindings.not(this);

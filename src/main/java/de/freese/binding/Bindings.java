@@ -25,6 +25,7 @@ import de.freese.binding.value.ObservableFloatValue;
 import de.freese.binding.value.ObservableLongValue;
 import de.freese.binding.value.ObservableNumberValue;
 import de.freese.binding.value.ObservableStringValue;
+import de.freese.binding.value.ObservableValue;
 
 /**
  * Util-Klasse.
@@ -111,7 +112,7 @@ public final class Bindings
      * @param ov {@link ObservableStringValue}
      * @return {@link StringBinding}
      */
-    public static BooleanBinding createBooleanBinding(final Function<String, Boolean> function, final ObservableStringValue ov)
+    public static BooleanBinding createBooleanBinding(final Function<Object, Boolean> function, final ObservableValue<?> ov)
     {
         BooleanBinding binding = new AbstractBooleanBinding()
         {
@@ -321,9 +322,27 @@ public final class Bindings
      * @param ov {@link ObservableStringValue}
      * @return {@link BooleanBinding}
      */
+    public static BooleanBinding isBlank(final ObservableStringValue ov)
+    {
+        return createBooleanBinding(v -> getValueSafe((String) v).trim().isEmpty(), ov);
+    }
+
+    /**
+     * @param ov {@link ObservableStringValue}
+     * @return {@link BooleanBinding}
+     */
     public static BooleanBinding isEmpty(final ObservableStringValue ov)
     {
-        return createBooleanBinding(v -> getValueSafe(v).isEmpty(), ov);
+        return createBooleanBinding(v -> getValueSafe((String) v).isEmpty(), ov);
+    }
+
+    /**
+     * @param ov {@link ObservableStringValue}
+     * @return {@link BooleanBinding}
+     */
+    public static BooleanBinding isNotBlank(final ObservableStringValue ov)
+    {
+        return createBooleanBinding(v -> !getValueSafe((String) v).trim().isEmpty(), ov);
     }
 
     /**
@@ -332,7 +351,27 @@ public final class Bindings
      */
     public static BooleanBinding isNotEmpty(final ObservableStringValue ov)
     {
-        return createBooleanBinding(v -> !getValueSafe(v).isEmpty(), ov);
+        return createBooleanBinding(v -> !getValueSafe((String) v).isEmpty(), ov);
+    }
+
+    /**
+     * @param ov {@link ObservableValue}
+     * @param <T> Konkreter Typ
+     * @return {@link BooleanBinding}
+     */
+    public static <T> BooleanBinding isNotNull(final ObservableValue<T> ov)
+    {
+        return createBooleanBinding(v -> v != null, ov);
+    }
+
+    /**
+     * @param ov {@link ObservableValue}
+     * @param <T> Konkreter Typ
+     * @return {@link BooleanBinding}
+     */
+    public static <T> BooleanBinding isNull(final ObservableValue<T> ov)
+    {
+        return createBooleanBinding(v -> v == null, ov);
     }
 
     /**

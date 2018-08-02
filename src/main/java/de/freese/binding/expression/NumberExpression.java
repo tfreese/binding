@@ -5,6 +5,7 @@
 package de.freese.binding.expression;
 
 import de.freese.binding.Bindings;
+import de.freese.binding.binds.BooleanBinding;
 import de.freese.binding.binds.NumberBinding;
 import de.freese.binding.constant.DoubleConstant;
 import de.freese.binding.constant.FloatConstant;
@@ -106,6 +107,22 @@ public interface NumberExpression<T extends Number> extends ObservableNumberValu
     public default NumberBinding<? extends Number> divide(final ObservableNumberValue<? extends Number> other)
     {
         return Bindings.divide(this, other);
+    }
+
+    /**
+     * @return {@link BooleanBinding}
+     */
+    public default BooleanBinding isNotNull()
+    {
+        return Bindings.isNotNull(this);
+    }
+
+    /**
+     * @return {@link BooleanBinding}
+     */
+    public default BooleanBinding isNull()
+    {
+        return Bindings.isNull(this);
     }
 
     /**

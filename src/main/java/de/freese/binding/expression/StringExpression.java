@@ -49,6 +49,14 @@ public interface StringExpression extends ObservableStringValue
     /**
      * @return {@link BooleanBinding}
      */
+    public default BooleanBinding isBlank()
+    {
+        return Bindings.isBlank(this);
+    }
+
+    /**
+     * @return {@link BooleanBinding}
+     */
     public default BooleanBinding isEmpty()
     {
         return Bindings.isEmpty(this);
@@ -57,9 +65,33 @@ public interface StringExpression extends ObservableStringValue
     /**
      * @return {@link BooleanBinding}
      */
+    public default BooleanBinding isNotBlank()
+    {
+        return Bindings.isNotBlank(this);
+    }
+
+    /**
+     * @return {@link BooleanBinding}
+     */
     public default BooleanBinding isNotEmpty()
     {
         return Bindings.isNotEmpty(this);
+    }
+
+    /**
+     * @return {@link BooleanBinding}
+     */
+    public default BooleanBinding isNotNull()
+    {
+        return Bindings.isNotNull(this);
+    }
+
+    /**
+     * @return {@link BooleanBinding}
+     */
+    public default BooleanBinding isNull()
+    {
+        return Bindings.isNull(this);
     }
 
     /**
