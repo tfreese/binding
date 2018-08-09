@@ -4,13 +4,7 @@
 
 package de.freese.binding.collections;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
-import java.util.ListIterator;
-import java.util.Objects;
+import java.util.AbstractList;
 import javax.swing.SwingUtilities;
 import javax.swing.event.EventListenerList;
 import javax.swing.event.ListDataEvent;
@@ -20,14 +14,8 @@ import javax.swing.event.ListDataListener;
  * @author Thomas Freese
  * @param <T> Konkreter Typ
  */
-@SuppressWarnings("unchecked")
-public abstract class AbstractObservableList<T> implements ObservableList<T>
+public abstract class AbstractObservableList<T> extends AbstractList<T> implements ObservableList<T>
 {
-    /**
-     *
-     */
-    private final List<T> backend;
-
     /**
     *
     */
@@ -43,112 +31,18 @@ public abstract class AbstractObservableList<T> implements ObservableList<T>
      */
     public AbstractObservableList()
     {
-        this(new ArrayList<>());
-    }
-
-    /**
-     * Erstellt ein neues {@link AbstractObservableList} Object.
-     *
-     * @param backend {@link List}
-     */
-    public AbstractObservableList(final List<T> backend)
-    {
         super();
-
-        this.backend = Objects.requireNonNull(backend, "backend required");
     }
 
     /**
-     * @see java.util.List#add(int, java.lang.Object)
+     * @see java.util.AbstractList#add(int, java.lang.Object)
      */
     @Override
     public void add(final int index, final T element)
     {
-        getBackend().add(index, element);
+        doAdd(index, element);
 
-        int realIndex = indexOf(element);
-
-        if (realIndex != -1)
-        {
-            fireIntervalAdded(realIndex, realIndex);
-        }
-    }
-
-    /**
-     * @see java.util.List#add(java.lang.Object)
-     */
-    @Override
-    public boolean add(final T e)
-    {
-        boolean value = getBackend().add(e);
-
-        int index = indexOf(e);
-
-        if (index != -1)
-        {
-            fireIntervalAdded(index, index);
-        }
-
-        return value;
-    }
-
-    /**
-     * @see java.util.List#addAll(java.util.Collection)
-     */
-    @Override
-    public boolean addAll(final Collection<? extends T> c)
-    {
-        if ((c == null) || (c.size() == 0))
-        {
-            return false;
-        }
-
-        getBackend().addAll(c);
-
-        if (size() == 0)
-        {
-            fireIntervalAdded(0, 0);
-        }
-        else
-        {
-            fireIntervalAdded(0, size() - 1);
-        }
-
-        return c.size() != 0;
-    }
-
-    /**
-     * @see java.util.List#addAll(int, java.util.Collection)
-     */
-    @Override
-    public boolean addAll(final int index, final Collection<? extends T> c)
-    {
-        if ((c == null) || (c.size() == 0))
-        {
-            return false;
-        }
-
-        getBackend().addAll(index, c);
-
-        if (size() == 0)
-        {
-            fireIntervalAdded(0, 0);
-        }
-        else
-        {
-            fireIntervalAdded(0, size() - 1);
-        }
-
-        return c.size() != 0;
-    }
-
-    /**
-     * @see de.freese.binding.collections.ObservableList#addAll(java.lang.Object[])
-     */
-    @Override
-    public boolean addAll(final T...elements)
-    {
-        return addAll(Arrays.asList(elements));
+        fireIntervalAdded(index, index);
     }
 
     /**
@@ -161,38 +55,26 @@ public abstract class AbstractObservableList<T> implements ObservableList<T>
     }
 
     /**
-     * @see java.util.List#clear()
+     * @param index int
+     * @param element Object
+     * @see AbstractList#add(int, Object)
      */
-    @Override
-    public void clear()
-    {
-        int oldSize = size();
-
-        getBackend().clear();
-
-        if (oldSize > 0)
-        {
-            fireIntervalRemoved(0, oldSize - 1);
-        }
-    }
+    protected abstract void doAdd(int index, T element);
 
     /**
-     * @see java.util.List#contains(java.lang.Object)
+     * @param index int
+     * @return Object
+     * @see AbstractList#remove(int)
      */
-    @Override
-    public boolean contains(final Object o)
-    {
-        return getBackend().contains(o);
-    }
+    protected abstract T doRemove(int index);
 
     /**
-     * @see java.util.List#containsAll(java.util.Collection)
+     * @param index int
+     * @param element Object
+     * @return Object
+     * @see AbstractList#set(int, Object)
      */
-    @Override
-    public boolean containsAll(final Collection<?> c)
-    {
-        return getBackend().containsAll(c);
-    }
+    protected abstract T doSet(int index, T element);
 
     /**
      * Benachrichtigt die Listener, dass sich die Struktur geaendert hat.<br>
@@ -306,21 +188,10 @@ public abstract class AbstractObservableList<T> implements ObservableList<T>
     }
 
     /**
-     * @see java.util.List#get(int)
+     * @see java.util.AbstractList#get(int)
      */
     @Override
-    public T get(final int index)
-    {
-        return getBackend().get(index);
-    }
-
-    /**
-     * @return {@link List}<T>
-     */
-    protected List<T> getBackend()
-    {
-        return this.backend;
-    }
+    public abstract T get(int index);
 
     /**
      * @return {@link EventListenerList}
@@ -328,24 +199,6 @@ public abstract class AbstractObservableList<T> implements ObservableList<T>
     protected EventListenerList getListeners()
     {
         return this.listeners;
-    }
-
-    /**
-     * @see java.util.List#indexOf(java.lang.Object)
-     */
-    @Override
-    public int indexOf(final Object o)
-    {
-        return getBackend().indexOf(o);
-    }
-
-    /**
-     * @see java.util.List#isEmpty()
-     */
-    @Override
-    public boolean isEmpty()
-    {
-        return getBackend().isEmpty();
     }
 
     /**
@@ -358,57 +211,16 @@ public abstract class AbstractObservableList<T> implements ObservableList<T>
     }
 
     /**
-     * @see java.util.List#iterator()
-     */
-    @Override
-    public Iterator<T> iterator()
-    {
-        return getBackend().iterator();
-    }
-
-    /**
-     * @see java.util.List#lastIndexOf(java.lang.Object)
-     */
-    @Override
-    public int lastIndexOf(final Object o)
-    {
-        return getBackend().lastIndexOf(o);
-    }
-
-    /**
-     * @see java.util.List#listIterator()
-     */
-    @Override
-    public ListIterator<T> listIterator()
-    {
-        return getBackend().listIterator();
-    }
-
-    /**
-     * @see java.util.List#listIterator(int)
-     */
-    @Override
-    public ListIterator<T> listIterator(final int index)
-    {
-        return getBackend().listIterator(index);
-    }
-
-    /**
-     * @see java.util.List#remove(int)
+     * @see java.util.AbstractList#remove(int)
      */
     @Override
     public T remove(final int index)
     {
-        if ((index == -1) || (index >= size()))
-        {
-            return null;
-        }
-
-        T object = getBackend().remove(index);
+        T old = doRemove(index);
 
         fireIntervalRemoved(index, index);
 
-        return object;
+        return old;
     }
 
     /**
@@ -417,64 +229,7 @@ public abstract class AbstractObservableList<T> implements ObservableList<T>
     @Override
     public void remove(final int from, final int to)
     {
-        for (int i = from; i < to; i++)
-        {
-            getBackend().remove(i);
-        }
-
-        fireIntervalRemoved(from, to);
-    }
-
-    /**
-     * @see java.util.List#remove(java.lang.Object)
-     */
-    @Override
-    public boolean remove(final Object o)
-    {
-        if (o == null)
-        {
-            return false;
-        }
-
-        int index = indexOf(o);
-
-        if (index == -1)
-        {
-            return false;
-        }
-
-        boolean value = getBackend().remove(o);
-
-        fireIntervalRemoved(index, index);
-
-        return value;
-    }
-
-    /**
-     * @see java.util.List#removeAll(java.util.Collection)
-     */
-    @Override
-    public boolean removeAll(final Collection<?> c)
-    {
-        int oldSize = size();
-
-        boolean value = getBackend().removeAll(c);
-
-        if (oldSize > 0)
-        {
-            fireContentsChanged(0, oldSize - 1);
-        }
-
-        return value;
-    }
-
-    /**
-     * @see de.freese.binding.collections.ObservableList#removeAll(java.lang.Object[])
-     */
-    @Override
-    public boolean removeAll(final T...elements)
-    {
-        return removeAll(Arrays.asList(elements));
+        removeRange(from, to);
     }
 
     /**
@@ -487,71 +242,16 @@ public abstract class AbstractObservableList<T> implements ObservableList<T>
     }
 
     /**
-     * @see java.util.List#retainAll(java.util.Collection)
-     */
-    @Override
-    public boolean retainAll(final Collection<?> c)
-    {
-        int oldSize = size();
-
-        boolean value = getBackend().retainAll(c);
-
-        if (oldSize > 0)
-        {
-            fireContentsChanged(0, oldSize - 1);
-        }
-
-        return value;
-    }
-
-    /**
-     * @see de.freese.binding.collections.ObservableList#retainAll(java.lang.Object[])
-     */
-    @Override
-    public boolean retainAll(final T...elements)
-    {
-        return retainAll(Arrays.asList(elements));
-    }
-
-    /**
-     * @see java.util.List#set(int, java.lang.Object)
+     * @see java.util.AbstractList#set(int, java.lang.Object)
      */
     @Override
     public T set(final int index, final T element)
     {
-        T oldObject = getBackend().set(index, element);
+        T old = doSet(index, element);
 
         fireContentsChanged(index, index);
 
-        return oldObject;
-    }
-
-    /**
-     * @see de.freese.binding.collections.ObservableList#setAll(java.util.Collection)
-     */
-    @Override
-    public boolean setAll(final Collection<? extends T> col)
-    {
-        int oldSize = size();
-
-        getBackend().clear();
-        boolean value = getBackend().addAll(col);
-
-        if (oldSize > 0)
-        {
-            fireContentsChanged(0, oldSize - 1);
-        }
-
-        return value;
-    }
-
-    /**
-     * @see de.freese.binding.collections.ObservableList#setAll(java.lang.Object[])
-     */
-    @Override
-    public boolean setAll(final T...elements)
-    {
-        return setAll(Arrays.asList(elements));
+        return old;
     }
 
     /**
@@ -564,39 +264,8 @@ public abstract class AbstractObservableList<T> implements ObservableList<T>
     }
 
     /**
-     * @see java.util.List#size()
+     * @see java.util.AbstractCollection#size()
      */
     @Override
-    public int size()
-    {
-        return getBackend().size();
-    }
-
-    /**
-     * @see java.util.List#subList(int, int)
-     */
-    @Override
-    public List<T> subList(final int fromIndex, final int toIndex)
-    {
-        return getBackend().subList(fromIndex, toIndex);
-    }
-
-    /**
-     * @see java.util.List#toArray()
-     */
-    @Override
-    public Object[] toArray()
-    {
-        return getBackend().toArray();
-    }
-
-    /**
-     * @see java.util.List#toArray(java.lang.Object[])
-     */
-    @SuppressWarnings("hiding")
-    @Override
-    public <T> T[] toArray(final T[] a)
-    {
-        return getBackend().toArray(a);
-    }
+    public abstract int size();
 }
