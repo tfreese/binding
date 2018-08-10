@@ -9,6 +9,8 @@ import javax.swing.SwingUtilities;
 import javax.swing.event.EventListenerList;
 import javax.swing.event.ListDataEvent;
 import javax.swing.event.ListDataListener;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @author Thomas Freese
@@ -25,6 +27,11 @@ public abstract class AbstractObservableList<T> extends AbstractList<T> implemen
     *
     */
     private final transient EventListenerList listeners = new EventListenerList();
+
+    /**
+     *
+     */
+    private final Logger logger = LoggerFactory.getLogger(getClass());
 
     /**
      * Erstellt ein neues {@link AbstractObservableList} Object.
@@ -199,6 +206,14 @@ public abstract class AbstractObservableList<T> extends AbstractList<T> implemen
     protected EventListenerList getListeners()
     {
         return this.listeners;
+    }
+
+    /**
+     * @return {@link Logger}
+     */
+    public Logger getLogger()
+    {
+        return this.logger;
     }
 
     /**

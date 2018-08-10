@@ -36,6 +36,8 @@ public class DefaultObservableList<T> extends AbstractObservableList<T>
     @Override
     protected void doAdd(final int index, final T element)
     {
+        getLogger().debug("Index: {}; Element: {}", index, element);
+
         getSource().add(index, element);
     }
 
@@ -45,6 +47,8 @@ public class DefaultObservableList<T> extends AbstractObservableList<T>
     @Override
     protected T doRemove(final int index)
     {
+        getLogger().debug("Index: {}", index);
+
         return getSource().remove(index);
     }
 
@@ -54,6 +58,8 @@ public class DefaultObservableList<T> extends AbstractObservableList<T>
     @Override
     protected T doSet(final int index, final T element)
     {
+        getLogger().debug("Index: {}; Element: {}", index, element);
+
         return getSource().set(index, element);
     }
 

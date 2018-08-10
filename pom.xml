@@ -1,54 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
 
-    <parent>
-        <groupId>de.freese</groupId>
-        <artifactId>maven-parent</artifactId>
-        <version>0.0.1</version>
-    </parent>
+	<parent>
+		<groupId>de.freese</groupId>
+		<artifactId>maven-parent</artifactId>
+		<version>0.0.1</version>
+	</parent>
 
-    <artifactId>binding</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <packaging>jar</packaging>
+	<artifactId>binding</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
 
-    <name>${project.groupId} - ${project.artifactId}</name>
-    <description>An alternative for Swing like the Binding in JavaFX.</description>
-    <url>https://github.com/tfreese/binding</url>
-    <inceptionYear>2018</inceptionYear>
+	<name>${project.groupId} - ${project.artifactId}</name>
+	<description>An alternative for Swing like the Binding in JavaFX.</description>
+	<url>https://github.com/tfreese/binding</url>
+	<inceptionYear>2018</inceptionYear>
 
-    <properties>
-    	<version.java>1.8</version.java>
-    </properties>
-    
-    <organization>
-        <name>Thomas Freese</name>
-        <url>https://github.com/tfreese/binding</url>
-    </organization>
-    
-    <scm>
-        <url>${project.url}</url>
-        <connection>scm:git:git://github.com/tfreese/binding.git</connection>
-        <developerConnection>scm:git:https://github.com/tfreese/binding.git</developerConnection>
-    </scm>
+	<properties>
+		<version.java>1.8</version.java>
+	</properties>
 
-    <build>
-        <plugins>
-        </plugins>
-    </build>
+	<organization>
+		<name>Thomas Freese</name>
+		<url>https://github.com/tfreese/binding</url>
+	</organization>
 
-    <dependencies>
-        <!-- compile scope -->
-        <!-- runtime scope -->
-        <!-- provided scope -->
-        <!-- test scope -->
+	<scm>
+		<url>${project.url}</url>
+		<connection>scm:git:git://github.com/tfreese/binding.git</connection>
+		<developerConnection>scm:git:https://github.com/tfreese/binding.git</developerConnection>
+	</scm>
+
+	<build>
+		<plugins>
+		</plugins>
+	</build>
+
+	<dependencies>
+		<!-- compile scope -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${version:org.slf4j:slf4j}</version>
+		</dependency>
+		<!-- runtime scope -->
+		<!-- provided scope -->
+		<!-- test scope -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>${version:junit:junit}</version>
 			<scope>test</scope>
-		</dependency>        
-    </dependencies>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>${version:ch.qos.logback:logback}</version>
+			<scope>test</scope>
+		</dependency>		
+		<!--dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-simple</artifactId>
+			<version>${version:org.slf4j:slf4j}</version>
+			<scope>test</scope>
+		</dependency-->
+	</dependencies>
 
 </project>

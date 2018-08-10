@@ -87,6 +87,8 @@ public class SortedObservableList<T> extends DefaultObservableList<T>
     @Override
     protected void doAdd(final int index, final T element)
     {
+        getLogger().debug("Index: {}; Element: {}", index, element);
+
         this.sortedList.add(index, element);
 
         super.doAdd(index, element);
@@ -98,6 +100,8 @@ public class SortedObservableList<T> extends DefaultObservableList<T>
     @Override
     protected T doRemove(final int index)
     {
+        getLogger().debug("Index: {}", index);
+
         this.sortedList.remove(index);
 
         T old = super.doRemove(index);
@@ -111,6 +115,8 @@ public class SortedObservableList<T> extends DefaultObservableList<T>
     @Override
     protected T doSet(final int index, final T element)
     {
+        getLogger().debug("Index: {}; Element: {}", index, element);
+
         this.sortedList.set(index, element);
 
         T old = super.doSet(index, element);
@@ -123,6 +129,8 @@ public class SortedObservableList<T> extends DefaultObservableList<T>
      */
     protected void doSort()
     {
+        getLogger().debug("doSort");
+
         this.sortedList.sort(this.comparator);
     }
 

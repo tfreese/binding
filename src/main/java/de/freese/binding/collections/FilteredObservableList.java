@@ -76,7 +76,13 @@ public class FilteredObservableList<T> extends DefaultObservableList<T>
             @Override
             public void intervalRemoved(final ListDataEvent e)
             {
-                doFilter();
+                int firstRow = e.getIndex0();
+                int lastRow = e.getIndex1();
+
+                for (int i = firstRow; i <= lastRow; i++)
+                {
+                    FilteredObservableList.this.filteredList.remove(i);
+                }
             }
         });
     }
@@ -86,6 +92,8 @@ public class FilteredObservableList<T> extends DefaultObservableList<T>
      */
     protected void doFilter()
     {
+        getLogger().debug("doFilter");
+
         this.filteredList.clear();
 
         for (T element : getSource())
