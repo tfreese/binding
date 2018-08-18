@@ -12,6 +12,7 @@ import de.freese.binding.binds.AbstractFloatBinding;
 import de.freese.binding.binds.AbstractIntegerBinding;
 import de.freese.binding.binds.AbstractLongBinding;
 import de.freese.binding.binds.AbstractStringBinding;
+import de.freese.binding.binds.Binding;
 import de.freese.binding.binds.BooleanBinding;
 import de.freese.binding.binds.DoubleBinding;
 import de.freese.binding.binds.FloatBinding;
@@ -28,7 +29,7 @@ import de.freese.binding.value.ObservableStringValue;
 import de.freese.binding.value.ObservableValue;
 
 /**
- * Util-Klasse.
+ * Util-Klasse für die {@link Binding} Implementierungen.
  *
  * @author Thomas Freese
  */
