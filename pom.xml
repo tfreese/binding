@@ -18,10 +18,6 @@
 	<url>https://github.com/tfreese/binding</url>
 	<inceptionYear>2018</inceptionYear>
 
-	<properties>
-		<version.java>1.8</version.java>
-	</properties>
-
 	<organization>
 		<name>Thomas Freese</name>
 		<url>https://github.com/tfreese/binding</url>
