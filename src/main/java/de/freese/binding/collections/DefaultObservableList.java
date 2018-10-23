@@ -4,6 +4,7 @@
 
 package de.freese.binding.collections;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -17,6 +18,14 @@ public class DefaultObservableList<T> extends AbstractObservableList<T>
      *
      */
     private final List<T> source;
+
+    /**
+     * Erstellt ein neues {@link DefaultObservableList} Object.
+     */
+    public DefaultObservableList()
+    {
+        this(new ArrayList<>());
+    }
 
     /**
      * Erstellt ein neues {@link DefaultObservableList} Object.

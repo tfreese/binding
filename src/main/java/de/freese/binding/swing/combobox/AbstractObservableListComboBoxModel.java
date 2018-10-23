@@ -47,7 +47,7 @@ public abstract class AbstractObservableListComboBoxModel<T> extends AbstractObs
     private static final long serialVersionUID = -5837879226873538114L;
 
     /**
-     * Das momentan selektierte Objekt in der ComboBox.
+     * Das momentan selektierte Objekt.
      */
     private Object selectedObject = null;
 

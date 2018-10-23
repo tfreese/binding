@@ -191,7 +191,15 @@ public final class SwingBindings
      */
     public static void bindToSwing(final ObservableValue<Boolean> value, final JCheckBox component)
     {
-        value.addListener((observable, oldValue, newValue) -> component.setSelected(newValue));
+        value.addListener((observable, oldValue, newValue) -> {
+            if (Objects.equals(component.isSelected(), newValue))
+            {
+                LOGGER.debug("JCheckBox: Selected equals newvalue -> return: {}", newValue);
+                return;
+            }
+
+            component.setSelected(newValue);
+        });
     }
 
     /**
@@ -202,7 +210,15 @@ public final class SwingBindings
      */
     public static void bindToSwing(final ObservableValue<Integer> value, final JSlider component)
     {
-        value.addListener((observable, oldValue, newValue) -> component.setValue(newValue));
+        value.addListener((observable, oldValue, newValue) -> {
+            if (Objects.equals(component.getValue(), newValue))
+            {
+                LOGGER.debug("JSlider: Value equals newvalue -> return: {}", newValue);
+                return;
+            }
+
+            component.setValue(newValue);
+        });
     }
 
     /**
@@ -213,7 +229,15 @@ public final class SwingBindings
      */
     public static void bindToSwing(final ObservableValue<String> value, final JLabel component)
     {
-        value.addListener((observable, oldValue, newValue) -> component.setText(newValue));
+        value.addListener((observable, oldValue, newValue) -> {
+            if (Objects.equals(component.getText(), newValue))
+            {
+                LOGGER.debug("JLabel: Text equals newvalue -> return: {}", newValue);
+                return;
+            }
+
+            component.setText(newValue);
+        });
     }
 
     /**
@@ -227,7 +251,15 @@ public final class SwingBindings
      */
     public static void bindToSwing(final ObservableValue<String> value, final JTextComponent component)
     {
-        value.addListener((observable, oldValue, newValue) -> component.setText(newValue));
+        value.addListener((observable, oldValue, newValue) -> {
+            if (Objects.equals(component.getText(), newValue))
+            {
+                LOGGER.debug("JTextComponent: Text equals newvalue -> return: {}", newValue);
+                return;
+            }
+
+            component.setText(newValue);
+        });
     }
 
     /**
@@ -238,7 +270,15 @@ public final class SwingBindings
      */
     public static void bindToSwing(final ObservableValue<String> value, final TitledBorder component)
     {
-        value.addListener((observable, oldValue, newValue) -> component.setTitle(newValue));
+        value.addListener((observable, oldValue, newValue) -> {
+            if (Objects.equals(component.getTitle(), newValue))
+            {
+                LOGGER.debug("TitledBorder: Title equals newvalue -> return: {}", newValue);
+                return;
+            }
+
+            component.setTitle(newValue);
+        });
     }
 
     /**
@@ -249,7 +289,15 @@ public final class SwingBindings
      */
     public static <T> void bindToSwing(final ObservableValue<T> value, final JComboBox<T> component)
     {
-        value.addListener((observable, oldValue, newValue) -> component.setSelectedItem(newValue));
+        value.addListener((observable, oldValue, newValue) -> {
+            if (Objects.equals(component.getSelectedItem(), newValue))
+            {
+                LOGGER.debug("JComboBox: SelectedItem equals newvalue -> return: {}", newValue);
+                return;
+            }
+
+            component.setSelectedItem(newValue);
+        });
     }
 
     /**
@@ -263,10 +311,11 @@ public final class SwingBindings
         Runnable task = () -> {
             if (Objects.equals(property.getValue(), newValue))
             {
+                LOGGER.debug("newvalue equals property -> return: {}", newValue);
                 return;
             }
 
-            LOGGER.debug("set value in property: {}", newValue);
+            LOGGER.debug("set newvalue in property: {}", newValue);
 
             property.setValue(newValue);
         };
