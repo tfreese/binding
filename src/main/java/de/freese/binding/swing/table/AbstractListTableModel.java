@@ -28,6 +28,11 @@ public abstract class AbstractListTableModel<T> extends AbstractTableModel
     private final int columnCount;
 
     /**
+    *
+    */
+    private final List<String> columnNames;
+
+    /**
      *
      */
     private final List<T> list;
@@ -57,7 +62,34 @@ public abstract class AbstractListTableModel<T> extends AbstractTableModel
             throw new IllegalArgumentException("columncount < 0: " + columnCount);
         }
 
+        this.columnNames = null;
         this.columnCount = columnCount;
+        this.list = Objects.requireNonNull(list, "list required");
+    }
+
+    /**
+     * Erstellt ein neues {@link AbstractListTableModel} Objekt.
+     *
+     * @param columnNames List
+     */
+    public AbstractListTableModel(final List<String> columnNames)
+    {
+        this(columnNames, new ArrayList<T>());
+    }
+
+    /**
+     * Erstellt ein neues {@link AbstractListTableModel} Objekt.
+     *
+     * @param columnNames {@link List}
+     * @param list {@link List}
+     */
+    public AbstractListTableModel(final List<String> columnNames, final List<T> list)
+    {
+        super();
+
+        this.columnNames = Objects.requireNonNull(columnNames, "columnNames required");
+        this.columnCount = this.columnNames.size();
+
         this.list = Objects.requireNonNull(list, "list required");
     }
 
@@ -90,6 +122,28 @@ public abstract class AbstractListTableModel<T> extends AbstractTableModel
     public int getColumnCount()
     {
         return this.columnCount;
+    }
+
+    /**
+     * @see javax.swing.table.AbstractTableModel#getColumnName(int)
+     */
+    @Override
+    public String getColumnName(final int column)
+    {
+        if ((getColumnNames() == null) || getColumnNames().isEmpty())
+        {
+            return super.getColumnName(column);
+        }
+
+        return getColumnNames().get(column);
+    }
+
+    /**
+     * @return {@link List}<String>
+     */
+    protected List<String> getColumnNames()
+    {
+        return this.columnNames;
     }
 
     /**

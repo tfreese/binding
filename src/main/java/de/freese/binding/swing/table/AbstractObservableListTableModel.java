@@ -1,5 +1,6 @@
 package de.freese.binding.swing.table;
 
+import java.util.List;
 import javax.swing.event.ListDataEvent;
 import javax.swing.event.ListDataListener;
 import de.freese.binding.collections.ObservableList;
@@ -81,6 +82,19 @@ public abstract class AbstractObservableListTableModel<T> extends AbstractListTa
     public AbstractObservableListTableModel(final int columnCount, final ObservableList<T> list)
     {
         super(columnCount, list);
+
+        list.addListener(new EventListListener());
+    }
+
+    /**
+     * Erstellt ein neues {@link AbstractObservableListTableModel} Objekt.
+     *
+     * @param columnNames {@link List}
+     * @param list {@link ObservableList}
+     */
+    public AbstractObservableListTableModel(final List<String> columnNames, final ObservableList<T> list)
+    {
+        super(columnNames, list);
 
         list.addListener(new EventListListener());
     }

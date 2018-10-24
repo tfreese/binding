@@ -108,6 +108,12 @@ public final class SwingBindings
         component.addItemListener(event -> {
             boolean selected = component.isSelected();
 
+            if (Objects.equals(selected, property.getValue()))
+            {
+                LOGGER.debug("JCheckBox: Selected equals property.getValue() -> return: {}", selected);
+                return;
+            }
+
             LOGGER.debug("JCheckBox selection changed: {}", selected);
 
             updateProperty(property, selected);
@@ -129,6 +135,12 @@ public final class SwingBindings
         component.addItemListener(event -> {
             T selectedItem = (T) component.getSelectedItem();
 
+            if (Objects.equals(selectedItem, property.getValue()))
+            {
+                LOGGER.debug("JComboBox: SelectedItem equals property.getValue() -> return: {}", selectedItem);
+                return;
+            }
+
             LOGGER.debug("JComboBox selection changed: {}", selectedItem);
 
             updateProperty(property, selectedItem);
@@ -148,6 +160,12 @@ public final class SwingBindings
     {
         component.addChangeListener(event -> {
             int value = component.getValue();
+
+            if (Objects.equals(value, property.getValue()))
+            {
+                LOGGER.debug("JSlider: Value equals property.getValue() -> return: {}", value);
+                return;
+            }
 
             LOGGER.debug("JSlider changed: {}", value);
 
@@ -175,6 +193,12 @@ public final class SwingBindings
             public void focusLost(final FocusEvent e)
             {
                 String text = component.getText();
+
+                if (Objects.equals(text, property.getValue()))
+                {
+                    LOGGER.debug("JTextComponent: Text equals property.getValue() -> return: {}", text);
+                    return;
+                }
 
                 LOGGER.debug("JTextComponent focus lost: {}", text);
 
