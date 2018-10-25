@@ -12,6 +12,7 @@ import javax.swing.JComboBox;
 import javax.swing.JEditorPane;
 import javax.swing.JLabel;
 import javax.swing.JSlider;
+import javax.swing.JSpinner;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
@@ -74,6 +75,21 @@ public final class SwingBindings
      * @see JTextField
      */
     public static void bindBidirectional(final JSlider component, final Property<Integer> property)
+    {
+        bindToSwing(property, component);
+        bindToProperty(component, property);
+    }
+
+    /**
+     * Bindet bidirektional einen {@link JSpinner} an ein {@link Property}.
+     *
+     * @param component {@link JSpinner}
+     * @param property {@link Property}
+     * @see JEditorPane
+     * @see JTextArea
+     * @see JTextField
+     */
+    public static void bindBidirectional(final JSpinner component, final Property<Integer> property)
     {
         bindToSwing(property, component);
         bindToProperty(component, property);
@@ -168,6 +184,30 @@ public final class SwingBindings
             }
 
             LOGGER.debug("JSlider changed: {}", value);
+
+            updateProperty(property, value);
+        });
+    }
+
+    /**
+     * Bindet ein {@link JSpinner} an ein {@link Property}.
+     *
+     * @param component {@link JSpinner}
+     * @param property {@link Property}d
+     */
+    @SuppressWarnings("unchecked")
+    public static <T> void bindToProperty(final JSpinner component, final Property<T> property)
+    {
+        component.addChangeListener(event -> {
+            T value = (T) component.getValue();
+
+            if (Objects.equals(value, property.getValue()))
+            {
+                LOGGER.debug("JSpinner: Value equals property.getValue() -> return: {}", value);
+                return;
+            }
+
+            LOGGER.debug("JSpinner changed: {}", value);
 
             updateProperty(property, value);
         });
@@ -321,6 +361,25 @@ public final class SwingBindings
             }
 
             component.setSelectedItem(newValue);
+        });
+    }
+
+    /**
+     * Bindet ein {@link ObservableValue} an einen {@link JSpinner}.
+     *
+     * @param value {@link ObservableValue}
+     * @param component {@link JSpinner}
+     */
+    public static <T> void bindToSwing(final ObservableValue<T> value, final JSpinner component)
+    {
+        value.addListener((observable, oldValue, newValue) -> {
+            if (Objects.equals(component.getValue(), newValue))
+            {
+                LOGGER.debug("JSpinner: Value equals newvalue -> return: {}", newValue);
+                return;
+            }
+
+            component.setValue(newValue);
         });
     }
 
