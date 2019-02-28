@@ -39,27 +39,25 @@
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
-			<version>${version:org.slf4j:slf4j}</version>
 		</dependency>
+		
 		<!-- runtime scope -->
 		<!-- provided scope -->
+		
 		<!-- test scope -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>${version:junit:junit}</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>ch.qos.logback</groupId>
 			<artifactId>logback-classic</artifactId>
-			<version>${version:ch.qos.logback:logback}</version>
 			<scope>test</scope>
 		</dependency>		
 		<!--dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-simple</artifactId>
-			<version>${version:org.slf4j:slf4j}</version>
 			<scope>test</scope>
 		</dependency-->
 	</dependencies>
