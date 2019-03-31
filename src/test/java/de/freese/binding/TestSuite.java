@@ -3,25 +3,23 @@
  */
 package de.freese.binding;
 
+import org.junit.platform.runner.JUnitPlatform;
+import org.junit.platform.suite.api.SelectPackages;
+import org.junit.platform.suite.api.SuiteDisplayName;
 import org.junit.runner.RunWith;
-import org.junit.runners.Suite;
-import org.junit.runners.Suite.SuiteClasses;
 
 /**
  * @author Thomas Freese
  */
-@RunWith(Suite.class)
-@SuiteClasses(
-{
-        TestStringBinding.class, TestBooleanBinding.class
-})
-
-public class AllTests
+@RunWith(JUnitPlatform.class)
+@SuiteDisplayName("TestSuite for Binding")
+@SelectPackages("de.freese.binding")
+public class TestSuite
 {
     /**
-     * Erstellt ein neues {@link AllTests} Object.
+     * Erstellt ein neues {@link TestSuite} Object.
      */
-    public AllTests()
+    public TestSuite()
     {
         super();
     }
