@@ -19,21 +19,13 @@ import de.freese.binding.value.ChangeListener;
  * @author Thomas Freese
  */
 @TestMethodOrder(MethodOrderer.Alphanumeric.class)
-public class TestStringBinding
+class TestStringBinding
 {
-    /**
-     * Erstellt ein neues {@link TestStringBinding} Object.
-     */
-    public TestStringBinding()
-    {
-        super();
-    }
-
     /**
     *
     */
     @Test
-    public void testBindingConcat()
+    void testBindingConcat()
     {
         SimpleStringProperty p1 = new SimpleStringProperty();
         SimpleStringProperty p2 = new SimpleStringProperty();
@@ -53,7 +45,7 @@ public class TestStringBinding
     *
     */
     @Test
-    public void testBindingIsEmpty()
+    void testBindingIsEmpty()
     {
         SimpleStringProperty p1 = new SimpleStringProperty();
 
@@ -72,7 +64,7 @@ public class TestStringBinding
     *
     */
     @Test
-    public void testBindingLength()
+    void testBindingLength()
     {
         SimpleStringProperty p1 = new SimpleStringProperty();
 
@@ -90,7 +82,7 @@ public class TestStringBinding
      *
      */
     @Test
-    public void testProperty()
+    void testProperty()
     {
         Property<String> p = new SimpleStringProperty();
 

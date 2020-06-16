@@ -44,7 +44,7 @@ public abstract class AbstractListTableModel<T> extends AbstractTableModel
      */
     public AbstractListTableModel(final int columnCount)
     {
-        this(columnCount, new ArrayList<T>());
+        this(columnCount, new ArrayList<>());
     }
 
     /**
@@ -74,7 +74,7 @@ public abstract class AbstractListTableModel<T> extends AbstractTableModel
      */
     public AbstractListTableModel(final List<String> columnNames)
     {
-        this(columnNames, new ArrayList<T>());
+        this(columnNames, new ArrayList<>());
     }
 
     /**

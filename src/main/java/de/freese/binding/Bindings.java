@@ -4,6 +4,7 @@
 
 package de.freese.binding;
 
+import java.util.Objects;
 import java.util.function.BiFunction;
 import java.util.function.Function;
 import de.freese.binding.binds.AbstractBooleanBinding;
@@ -362,7 +363,7 @@ public final class Bindings
      */
     public static <T> BooleanBinding isNotNull(final ObservableValue<T> ov)
     {
-        return createBooleanBinding(v -> v != null, ov);
+        return createBooleanBinding(Objects::nonNull, ov);
     }
 
     /**
@@ -372,7 +373,7 @@ public final class Bindings
      */
     public static <T> BooleanBinding isNull(final ObservableValue<T> ov)
     {
-        return createBooleanBinding(v -> v == null, ov);
+        return createBooleanBinding(Objects::isNull, ov);
     }
 
     /**

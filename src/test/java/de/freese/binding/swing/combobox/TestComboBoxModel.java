@@ -9,6 +9,7 @@ import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import de.freese.binding.collections.DefaultObservableList;
@@ -55,7 +56,7 @@ public class TestComboBoxModel
         // Add Rows
         for (int i = 0; i < 7; i++)
         {
-            Thread.sleep(2000);
+            TimeUnit.MILLISECONDS.sleep(2000);
 
             Map<Integer, String> row = new HashMap<>();
             row.put(0, i + "-0");
@@ -67,12 +68,12 @@ public class TestComboBoxModel
         }
 
         // Delete Rows
-        Thread.sleep(2000);
+        TimeUnit.MILLISECONDS.sleep(2000);
         list.remove(0);
-        Thread.sleep(2000);
+        TimeUnit.MILLISECONDS.sleep(2000);
         list.remove(2);
 
-        Thread.sleep(2000);
+        TimeUnit.MILLISECONDS.sleep(2000);
         list.clear();
     }
 

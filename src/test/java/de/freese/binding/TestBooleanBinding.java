@@ -17,21 +17,13 @@ import de.freese.binding.value.ChangeListener;
  * @author Thomas Freese
  */
 @TestMethodOrder(MethodOrderer.Alphanumeric.class)
-public class TestBooleanBinding
+class TestBooleanBinding
 {
-    /**
-     * Erstellt ein neues {@link TestBooleanBinding} Object.
-     */
-    public TestBooleanBinding()
-    {
-        super();
-    }
-
     /**
     *
     */
     @Test
-    public void testBinding()
+    void testBinding()
     {
         SimpleBooleanProperty property1 = new SimpleBooleanProperty();
         SimpleBooleanProperty property2 = new SimpleBooleanProperty();
@@ -50,7 +42,7 @@ public class TestBooleanBinding
      *
      */
     @Test
-    public void testProperty()
+    void testProperty()
     {
         Property<Boolean> property = new SimpleBooleanProperty();
 

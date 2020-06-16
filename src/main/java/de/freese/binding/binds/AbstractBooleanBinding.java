@@ -62,15 +62,6 @@ public abstract class AbstractBooleanBinding extends AbstractBooleanExpression i
         return this.value;
     }
 
-    // /**
-    // * @see de.freese.binding.binds.Binding#unbind()
-    // */
-    // @Override
-    // public void unbind()
-    // {
-    // // TODO Auto-generated method stub
-    // }
-
     /**
      * @see de.freese.binding.binds.Binding#update()
      */
