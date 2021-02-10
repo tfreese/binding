@@ -10,14 +10,6 @@ package de.freese.binding.expression;
 public abstract class AbstractLongExpression extends AbstractNumberExpression<Long> implements LongExpression
 {
     /**
-     * Erstellt ein neues {@link AbstractLongExpression} Object.
-     */
-    public AbstractLongExpression()
-    {
-        super();
-    }
-
-    /**
      * @see de.freese.binding.value.ObservableIntegerValue#get()
      */
     @Override

@@ -17,15 +17,7 @@ public abstract class AbstractBooleanProperty extends AbstractBooleanExpression 
     /**
      *
      */
-    private Boolean value = null;
-
-    /**
-     * Erstellt ein neues {@link AbstractBooleanProperty} Object.
-     */
-    public AbstractBooleanProperty()
-    {
-        super();
-    }
+    private Boolean value;
 
     /**
      * @see de.freese.binding.value.ObservableValue#getValue()

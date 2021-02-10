@@ -10,14 +10,6 @@ package de.freese.binding.expression;
 public abstract class AbstractBooleanExpression extends AbstractExpression<Boolean> implements BooleanExpression
 {
     /**
-     * Erstellt ein neues {@link AbstractBooleanExpression} Object.
-     */
-    public AbstractBooleanExpression()
-    {
-        super();
-    }
-
-    /**
      * @see de.freese.binding.value.ObservableBooleanValue#get()
      */
     @Override

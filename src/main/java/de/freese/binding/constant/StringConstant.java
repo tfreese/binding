@@ -10,7 +10,7 @@ import de.freese.binding.value.ChangeListener;
 /**
  * @author Thomas Freese
  */
-public class StringConstant extends AbstractStringExpression
+public final class StringConstant extends AbstractStringExpression
 {
     /**
      * @param value String

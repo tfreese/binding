@@ -16,15 +16,7 @@ public abstract class AbstractIntegerBinding extends AbstractIntegerExpression i
     /**
     *
     */
-    private int value = 0;
-
-    /**
-     * Erstellt ein neues {@link AbstractIntegerBinding} Object.
-     */
-    public AbstractIntegerBinding()
-    {
-        super();
-    }
+    private int value;
 
     /**
      * Ermittelt den neuen Wert des Bindings, falls sich einer der {@link Property} geändert hat.

@@ -23,14 +23,6 @@ public abstract class AbstractExpression<T> implements ObservableValue<T>
     private final List<ChangeListener<? super T>> listeners = new ArrayList<>(4);
 
     /**
-     * Erstellt ein neues {@link AbstractExpression} Object.
-     */
-    public AbstractExpression()
-    {
-        super();
-    }
-
-    /**
      * @see de.freese.binding.value.ObservableValue#addListener(de.freese.binding.value.ChangeListener)
      */
     @Override

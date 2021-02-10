@@ -49,14 +49,14 @@ public abstract class AbstractObservableListComboBoxModel<T> extends AbstractObs
     /**
      * Das momentan selektierte Objekt.
      */
-    private Object selectedObject = null;
+    private Object selectedObject;
 
     /**
      * Erstellt ein neues {@link AbstractObservableListComboBoxModel} Objekt.
      *
      * @param list {@link ObservableList}
      */
-    public AbstractObservableListComboBoxModel(final ObservableList<T> list)
+    protected AbstractObservableListComboBoxModel(final ObservableList<T> list)
     {
         super(list);
     }

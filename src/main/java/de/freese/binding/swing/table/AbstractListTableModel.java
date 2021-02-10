@@ -42,7 +42,7 @@ public abstract class AbstractListTableModel<T> extends AbstractTableModel
      *
      * @param columnCount int
      */
-    public AbstractListTableModel(final int columnCount)
+    protected AbstractListTableModel(final int columnCount)
     {
         this(columnCount, new ArrayList<>());
     }
@@ -53,7 +53,7 @@ public abstract class AbstractListTableModel<T> extends AbstractTableModel
      * @param columnCount int
      * @param list {@link List}
      */
-    public AbstractListTableModel(final int columnCount, final List<T> list)
+    protected AbstractListTableModel(final int columnCount, final List<T> list)
     {
         super();
 
@@ -72,7 +72,7 @@ public abstract class AbstractListTableModel<T> extends AbstractTableModel
      *
      * @param columnNames List
      */
-    public AbstractListTableModel(final List<String> columnNames)
+    protected AbstractListTableModel(final List<String> columnNames)
     {
         this(columnNames, new ArrayList<>());
     }
@@ -83,7 +83,7 @@ public abstract class AbstractListTableModel<T> extends AbstractTableModel
      * @param columnNames {@link List}
      * @param list {@link List}
      */
-    public AbstractListTableModel(final List<String> columnNames, final List<T> list)
+    protected AbstractListTableModel(final List<String> columnNames, final List<T> list)
     {
         super();
 

@@ -10,14 +10,6 @@ package de.freese.binding.expression;
 public abstract class AbstractFloatExpression extends AbstractNumberExpression<Float> implements FloatExpression
 {
     /**
-     * Erstellt ein neues {@link AbstractFloatExpression} Object.
-     */
-    public AbstractFloatExpression()
-    {
-        super();
-    }
-
-    /**
      * @see de.freese.binding.value.ObservableIntegerValue#get()
      */
     @Override

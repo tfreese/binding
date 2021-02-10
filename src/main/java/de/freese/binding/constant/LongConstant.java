@@ -10,7 +10,7 @@ import de.freese.binding.value.ChangeListener;
 /**
  * @author Thomas Freese
  */
-public class LongConstant extends AbstractLongExpression
+public final class LongConstant extends AbstractLongExpression
 {
     /**
      * @param value long

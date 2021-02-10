@@ -14,15 +14,7 @@ public abstract class AbstractIntegerProperty extends AbstractIntegerExpression 
     /**
     *
     */
-    private int value = 0;
-
-    /**
-     * Erstellt ein neues {@link AbstractIntegerProperty} Object.
-     */
-    public AbstractIntegerProperty()
-    {
-        super();
-    }
+    private int value;
 
     /**
      * @see de.freese.binding.value.ObservableValue#getValue()

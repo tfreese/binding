@@ -10,14 +10,6 @@ package de.freese.binding.expression;
 public abstract class AbstractDoubleExpression extends AbstractNumberExpression<Double> implements DoubleExpression
 {
     /**
-     * Erstellt ein neues {@link AbstractDoubleExpression} Object.
-     */
-    public AbstractDoubleExpression()
-    {
-        super();
-    }
-
-    /**
      * @see de.freese.binding.value.ObservableIntegerValue#get()
      */
     @Override

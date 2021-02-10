@@ -10,7 +10,7 @@ import de.freese.binding.value.ChangeListener;
 /**
  * @author Thomas Freese
  */
-public class DoubleConstant extends AbstractDoubleExpression
+public final class DoubleConstant extends AbstractDoubleExpression
 {
     /**
      * @param value double

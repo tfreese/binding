@@ -27,14 +27,6 @@ public abstract class AbstractListExpression<T> implements ObservableListValue<T
     private final List<ChangeListener<? super ObservableList<T>>> listeners = new ArrayList<>(4);
 
     /**
-     * Erstellt ein neues {@link AbstractListExpression} Object.
-     */
-    public AbstractListExpression()
-    {
-        super();
-    }
-
-    /**
      * @see java.util.List#add(int, java.lang.Object)
      */
     @Override

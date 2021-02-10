@@ -10,7 +10,7 @@ import de.freese.binding.value.ChangeListener;
 /**
  * @author Thomas Freese
  */
-public class FloatConstant extends AbstractFloatExpression
+public final class FloatConstant extends AbstractFloatExpression
 {
     /**
      * @param value float

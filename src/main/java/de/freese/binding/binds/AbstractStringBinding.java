@@ -16,15 +16,7 @@ public abstract class AbstractStringBinding extends AbstractStringExpression imp
     /**
     *
     */
-    private String value = null;
-
-    /**
-     * Erstellt ein neues {@link AbstractStringBinding} Object.
-     */
-    public AbstractStringBinding()
-    {
-        super();
-    }
+    private String value;
 
     /**
      * Ermittelt den neuen Wert des Bindings, falls sich einer der {@link Property} geändert hat.

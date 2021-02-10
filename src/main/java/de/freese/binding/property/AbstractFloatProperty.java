@@ -14,15 +14,7 @@ public abstract class AbstractFloatProperty extends AbstractFloatExpression impl
     /**
     *
     */
-    private float value = 0.0F;
-
-    /**
-     * Erstellt ein neues {@link AbstractFloatProperty} Object.
-     */
-    public AbstractFloatProperty()
-    {
-        super();
-    }
+    private float value;
 
     /**
      * @see de.freese.binding.value.ObservableValue#getValue()

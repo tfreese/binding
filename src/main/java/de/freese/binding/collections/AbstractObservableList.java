@@ -26,20 +26,12 @@ public abstract class AbstractObservableList<T> extends AbstractList<T> implemen
     /**
     *
     */
-    private final transient EventListenerList listeners = new EventListenerList();
+    private final EventListenerList listeners = new EventListenerList();
 
     /**
      *
      */
     private final Logger logger = LoggerFactory.getLogger(getClass());
-
-    /**
-     * Erstellt ein neues {@link AbstractObservableList} Object.
-     */
-    public AbstractObservableList()
-    {
-        super();
-    }
 
     /**
      * @see java.util.AbstractList#add(int, java.lang.Object)

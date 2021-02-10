@@ -20,7 +20,7 @@ public class SortedObservableList<T> extends DefaultObservableList<T>
     /**
      *
      */
-    private Comparator<T> comparator = null;
+    private Comparator<T> comparator;
 
     /**
      *

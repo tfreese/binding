@@ -11,7 +11,7 @@ import de.freese.binding.value.ChangeListener;
  * @author Thomas Freese
  * @param <T> Konkreter Typ
  */
-public class ObjectConstant<T> extends AbstractObjectExpression<T>
+public final class ObjectConstant<T> extends AbstractObjectExpression<T>
 {
     /**
      * @param value Object

@@ -79,7 +79,7 @@ public abstract class AbstractObservableListTableModel<T> extends AbstractListTa
      * @param columnCount int
      * @param list {@link ObservableList}
      */
-    public AbstractObservableListTableModel(final int columnCount, final ObservableList<T> list)
+    protected AbstractObservableListTableModel(final int columnCount, final ObservableList<T> list)
     {
         super(columnCount, list);
 
@@ -92,7 +92,7 @@ public abstract class AbstractObservableListTableModel<T> extends AbstractListTa
      * @param columnNames {@link List}
      * @param list {@link ObservableList}
      */
-    public AbstractObservableListTableModel(final List<String> columnNames, final ObservableList<T> list)
+    protected AbstractObservableListTableModel(final List<String> columnNames, final ObservableList<T> list)
     {
         super(columnNames, list);
 

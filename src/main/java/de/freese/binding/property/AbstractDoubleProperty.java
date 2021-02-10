@@ -14,15 +14,7 @@ public abstract class AbstractDoubleProperty extends AbstractDoubleExpression im
     /**
     *
     */
-    private double value = 0.0D;
-
-    /**
-     * Erstellt ein neues {@link AbstractDoubleProperty} Object.
-     */
-    public AbstractDoubleProperty()
-    {
-        super();
-    }
+    private double value;
 
     /**
      * @see de.freese.binding.value.ObservableValue#getValue()

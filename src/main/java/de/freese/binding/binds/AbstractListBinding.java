@@ -18,15 +18,7 @@ public abstract class AbstractListBinding<T> extends AbstractListExpression<T> i
     /**
     *
     */
-    private ObservableList<T> value = null;
-
-    /**
-     * Erstellt ein neues {@link AbstractListBinding} Object.
-     */
-    public AbstractListBinding()
-    {
-        super();
-    }
+    private ObservableList<T> value;
 
     /**
      * Ermittelt den neuen Wert des Bindings, falls sich einer der {@link Property} geändert hat.

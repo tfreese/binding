@@ -21,15 +21,7 @@ public abstract class AbstractBooleanBinding extends AbstractBooleanExpression i
     /**
     *
     */
-    private Boolean value = null;
-
-    /**
-     * Erstellt ein neues {@link AbstractBooleanBinding} Object.
-     */
-    public AbstractBooleanBinding()
-    {
-        super();
-    }
+    private Boolean value;
 
     // /**
     // * @see de.freese.binding.binds.Binding#bind(de.freese.binding.value.ObservableValue[])

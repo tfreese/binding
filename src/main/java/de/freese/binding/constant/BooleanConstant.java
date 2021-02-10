@@ -10,7 +10,7 @@ import de.freese.binding.value.ChangeListener;
 /**
  * @author Thomas Freese
  */
-public class BooleanConstant extends AbstractBooleanExpression
+public final class BooleanConstant extends AbstractBooleanExpression
 {
     /**
      * @param value boolean

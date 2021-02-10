@@ -16,15 +16,7 @@ public abstract class AbstractDoubleBinding extends AbstractDoubleExpression imp
     /**
     *
     */
-    private double value = 0.0D;
-
-    /**
-     * Erstellt ein neues {@link AbstractDoubleBinding} Object.
-     */
-    public AbstractDoubleBinding()
-    {
-        super();
-    }
+    private double value;
 
     /**
      * Ermittelt den neuen Wert des Bindings, falls sich einer der {@link Property} geändert hat.

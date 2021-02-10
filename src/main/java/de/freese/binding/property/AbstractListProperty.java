@@ -19,15 +19,7 @@ public abstract class AbstractListProperty<T> extends AbstractListExpression<T> 
     /**
      *
      */
-    private ObservableList<T> value = null;
-
-    /**
-     * Erstellt ein neues {@link AbstractListProperty} Object.
-     */
-    public AbstractListProperty()
-    {
-        super();
-    }
+    private ObservableList<T> value;
 
     /**
      * @see de.freese.binding.value.ObservableValue#getValue()

@@ -9,11 +9,4 @@ package de.freese.binding.expression;
  */
 public abstract class AbstractStringExpression extends AbstractExpression<String> implements StringExpression
 {
-    /**
-     * Erstellt ein neues {@link AbstractStringExpression} Object.
-     */
-    public AbstractStringExpression()
-    {
-        super();
-    }
 }

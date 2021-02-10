@@ -12,7 +12,7 @@ import de.freese.binding.value.ChangeListener;
  * @author Thomas Freese
  * @param <T> Konkreter Typ
  */
-public class ListConstant<T> extends AbstractListExpression<T>
+public final class ListConstant<T> extends AbstractListExpression<T>
 {
     /**
      * @param value ObservableList

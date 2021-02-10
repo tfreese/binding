@@ -16,15 +16,7 @@ public abstract class AbstractFloatBinding extends AbstractFloatExpression imple
     /**
     *
     */
-    private float value = 0.0F;
-
-    /**
-     * Erstellt ein neues {@link AbstractFloatBinding} Object.
-     */
-    public AbstractFloatBinding()
-    {
-        super();
-    }
+    private float value;
 
     /**
      * Ermittelt den neuen Wert des Bindings, falls sich einer der {@link Property} geändert hat.

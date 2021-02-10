@@ -18,15 +18,7 @@ public abstract class AbstractObjectProperty<T> extends AbstractObjectExpression
     /**
      *
      */
-    private T value = null;
-
-    /**
-     * Erstellt ein neues {@link AbstractObjectProperty} Object.
-     */
-    public AbstractObjectProperty()
-    {
-        super();
-    }
+    private T value;
 
     /**
      * @see de.freese.binding.value.ObservableValue#getValue()

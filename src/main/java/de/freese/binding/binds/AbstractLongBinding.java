@@ -16,15 +16,7 @@ public abstract class AbstractLongBinding extends AbstractLongExpression impleme
     /**
     *
     */
-    private long value = 0;
-
-    /**
-     * Erstellt ein neues {@link AbstractLongBinding} Object.
-     */
-    public AbstractLongBinding()
-    {
-        super();
-    }
+    private long value;
 
     /**
      * Ermittelt den neuen Wert des Bindings, falls sich einer der {@link Property} geändert hat.

@@ -25,7 +25,7 @@ public class FilteredObservableList<T> extends DefaultObservableList<T>
     /**
      *
      */
-    private Predicate<T> predicate = null;
+    private Predicate<T> predicate;
 
     /**
      * Erstellt ein neues {@link FilteredObservableList} Object.

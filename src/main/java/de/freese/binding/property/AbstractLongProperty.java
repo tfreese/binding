@@ -14,15 +14,7 @@ public abstract class AbstractLongProperty extends AbstractLongExpression implem
     /**
     *
     */
-    private long value = 0;
-
-    /**
-     * Erstellt ein neues {@link AbstractLongProperty} Object.
-     */
-    public AbstractLongProperty()
-    {
-        super();
-    }
+    private long value;
 
     /**
      * @see de.freese.binding.value.ObservableValue#getValue()

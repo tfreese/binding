@@ -10,7 +10,7 @@ import de.freese.binding.value.ChangeListener;
 /**
  * @author Thomas Freese
  */
-public class IntegerConstant extends AbstractIntegerExpression
+public final class IntegerConstant extends AbstractIntegerExpression
 {
     /**
      * @param value int

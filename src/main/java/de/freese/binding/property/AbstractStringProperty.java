@@ -17,15 +17,7 @@ public abstract class AbstractStringProperty extends AbstractStringExpression im
     /**
      *
      */
-    private String value = null;
-
-    /**
-     * Erstellt ein neues {@link AbstractStringProperty} Object.
-     */
-    public AbstractStringProperty()
-    {
-        super();
-    }
+    private String value;
 
     /**
      * @see de.freese.binding.value.ObservableValue#getValue()

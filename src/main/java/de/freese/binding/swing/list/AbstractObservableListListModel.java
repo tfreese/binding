@@ -80,7 +80,7 @@ public abstract class AbstractObservableListListModel<T> implements ListModel<T>
      *
      * @param list {@link ObservableList}
      */
-    public AbstractObservableListListModel(final ObservableList<T> list)
+    protected AbstractObservableListListModel(final ObservableList<T> list)
     {
         super();
 
