@@ -5,8 +5,8 @@
 package de.freese.binding;
 
 import java.util.Objects;
-import java.util.function.BiFunction;
-import java.util.function.Function;
+import java.util.function.BinaryOperator;
+import java.util.function.Predicate;
 import de.freese.binding.binds.AbstractBooleanBinding;
 import de.freese.binding.binds.AbstractDoubleBinding;
 import de.freese.binding.binds.AbstractFloatBinding;
@@ -110,11 +110,11 @@ public final class Bindings
     }
 
     /**
-     * @param function {@link Function}
+     * @param function {@link Predicate}
      * @param ov {@link ObservableStringValue}
      * @return {@link StringBinding}
      */
-    public static BooleanBinding createBooleanBinding(final Function<Object, Boolean> function, final ObservableValue<?> ov)
+    public static BooleanBinding createBooleanBinding(final Predicate<Object> function, final ObservableValue<?> ov)
     {
         BooleanBinding binding = new AbstractBooleanBinding()
         {
@@ -124,7 +124,7 @@ public final class Bindings
             @Override
             protected Boolean computeValue()
             {
-                return function.apply(ov.getValue());
+                return function.test(ov.getValue());
             }
         };
 
@@ -136,12 +136,12 @@ public final class Bindings
     }
 
     /**
-     * @param function {@link BiFunction}
+     * @param function {@link BinaryOperator}
      * @param ov1 {@link ObservableNumberValue}
      * @param ov2 {@link ObservableNumberValue}
      * @return {@link DoubleBinding}
      */
-    public static DoubleBinding createDoubleBinding(final BiFunction<Double, Double, Double> function, final ObservableNumberValue<? extends Number> ov1,
+    public static DoubleBinding createDoubleBinding(final BinaryOperator<Double> function, final ObservableNumberValue<? extends Number> ov1,
                                                     final ObservableNumberValue<? extends Number> ov2)
     {
         DoubleBinding binding = new AbstractDoubleBinding()
@@ -165,12 +165,12 @@ public final class Bindings
     }
 
     /**
-     * @param function {@link BiFunction}
+     * @param function {@link BinaryOperator}
      * @param ov1 {@link ObservableNumberValue}
      * @param ov2 {@link ObservableNumberValue}
      * @return {@link FloatBinding}
      */
-    public static FloatBinding createFloatBinding(final BiFunction<Float, Float, Float> function, final ObservableNumberValue<? extends Number> ov1,
+    public static FloatBinding createFloatBinding(final BinaryOperator<Float> function, final ObservableNumberValue<? extends Number> ov1,
                                                   final ObservableNumberValue<? extends Number> ov2)
     {
         FloatBinding binding = new AbstractFloatBinding()
@@ -194,12 +194,12 @@ public final class Bindings
     }
 
     /**
-     * @param function {@link BiFunction}
+     * @param function {@link BinaryOperator}
      * @param ov1 {@link ObservableNumberValue}
      * @param ov2 {@link ObservableNumberValue}
      * @return {@link IntegerBinding}
      */
-    public static IntegerBinding createIntegerBinding(final BiFunction<Integer, Integer, Integer> function, final ObservableNumberValue<? extends Number> ov1,
+    public static IntegerBinding createIntegerBinding(final BinaryOperator<Integer> function, final ObservableNumberValue<? extends Number> ov1,
                                                       final ObservableNumberValue<? extends Number> ov2)
     {
         IntegerBinding binding = new AbstractIntegerBinding()
@@ -223,12 +223,12 @@ public final class Bindings
     }
 
     /**
-     * @param function {@link BiFunction}
+     * @param function {@link BinaryOperator}
      * @param ov1 {@link ObservableNumberValue}
      * @param ov2 {@link ObservableNumberValue}
      * @return {@link LongBinding}
      */
-    public static LongBinding createLongBinding(final BiFunction<Long, Long, Long> function, final ObservableNumberValue<? extends Number> ov1,
+    public static LongBinding createLongBinding(final BinaryOperator<Long> function, final ObservableNumberValue<? extends Number> ov1,
                                                 final ObservableNumberValue<? extends Number> ov2)
     {
         LongBinding binding = new AbstractLongBinding()
@@ -252,13 +252,12 @@ public final class Bindings
     }
 
     /**
-     * @param function {@link BiFunction}
+     * @param function {@link BinaryOperator}
      * @param ov1 {@link ObservableStringValue}
      * @param ov2 {@link ObservableStringValue}
      * @return {@link StringBinding}
      */
-    public static StringBinding createStringBinding(final BiFunction<String, String, String> function, final ObservableStringValue ov1,
-                                                    final ObservableStringValue ov2)
+    public static StringBinding createStringBinding(final BinaryOperator<String> function, final ObservableStringValue ov1, final ObservableStringValue ov2)
     {
         StringBinding binding = new AbstractStringBinding()
         {
