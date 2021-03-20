@@ -1,7 +1,4 @@
-/**
- * Created: 31.07.2018
- */
-
+// Created: 31.07.2018
 package de.freese.binding;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

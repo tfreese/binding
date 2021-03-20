@@ -1,0 +1,23 @@
+apply plugin: 'java-library'
+apply plugin: "io.spring.dependency-management"
+
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.boot:spring-boot-dependencies:$version_springBoot"
+    }
+
+    dependencies {
+		//dependency("...:...:...")
+    }
+} 
+
+
+dependencies {
+    api("org.slf4j:slf4j-api")
+    
+    testImplementation("org.junit.jupiter:junit-jupiter-engine")
+    testImplementation("org.junit.platform:junit-platform-runner")
+    testImplementation("org.junit.platform:junit-platform-suite-api")
+    testImplementation("org.slf4j:slf4j-simple")
+}

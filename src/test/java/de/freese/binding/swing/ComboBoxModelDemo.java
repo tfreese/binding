@@ -1,8 +1,7 @@
 /**
  * Created: 10.08.2018
  */
-
-package de.freese.binding.swing.combobox;
+package de.freese.binding.swing;
 
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -14,11 +13,12 @@ import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import de.freese.binding.collections.DefaultObservableList;
 import de.freese.binding.collections.ObservableList;
+import de.freese.binding.swing.combobox.DefaultObservableListComboBoxModel;
 
 /**
  * @author Thomas Freese
  */
-public class TestComboBoxModel
+public class ComboBoxModelDemo
 {
     /**
      * @param args String[]
@@ -75,13 +75,5 @@ public class TestComboBoxModel
 
         TimeUnit.MILLISECONDS.sleep(2000);
         list.clear();
-    }
-
-    /**
-     * Erstellt ein neues {@link TestComboBoxModel} Object.
-     */
-    public TestComboBoxModel()
-    {
-        super();
     }
 }

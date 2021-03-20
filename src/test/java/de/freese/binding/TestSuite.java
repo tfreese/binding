@@ -1,6 +1,4 @@
-/**
- *
- */
+// Created: 31.07.2018
 package de.freese.binding;
 
 import org.junit.platform.runner.JUnitPlatform;
@@ -16,13 +14,6 @@ import org.junit.runner.RunWith;
 @SelectPackages("de.freese.binding")
 public class TestSuite
 {
-    /**
-     * Erstellt ein neues {@link TestSuite} Object.
-     */
-    public TestSuite()
-    {
-        super();
-    }
     // /**
     // * In der Methode werden alle Testklassen registriert die durch JUnit aufgerufen werden sollen.
     // *
@@ -36,5 +27,4 @@ public class TestSuite
     //
     // return suite;
     // }
-
 }

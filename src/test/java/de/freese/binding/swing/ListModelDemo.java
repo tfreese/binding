@@ -1,8 +1,7 @@
 /**
  * Created: 10.08.2018
  */
-
-package de.freese.binding.swing.list;
+package de.freese.binding.swing;
 
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -14,11 +13,12 @@ import javax.swing.JFrame;
 import javax.swing.JList;
 import de.freese.binding.collections.DefaultObservableList;
 import de.freese.binding.collections.ObservableList;
+import de.freese.binding.swing.list.DefaultObservableListListModel;
 
 /**
  * @author Thomas Freese
  */
-public class TestListModel
+public class ListModelDemo
 {
     /**
      * @param args String[]
@@ -76,13 +76,5 @@ public class TestListModel
 
         TimeUnit.MILLISECONDS.sleep(2000);
         list.clear();
-    }
-
-    /**
-     * Erstellt ein neues {@link TestListModel} Object.
-     */
-    public TestListModel()
-    {
-        super();
     }
 }
