@@ -9,8 +9,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
+
 import javax.swing.JFrame;
 import javax.swing.JList;
+
 import de.freese.binding.collections.DefaultObservableList;
 import de.freese.binding.collections.ObservableList;
 import de.freese.binding.swing.list.DefaultObservableListListModel;
@@ -22,9 +24,9 @@ public class ListModelDemo
 {
     /**
      * @param args String[]
-     * @throws InterruptedException Falls was schief geht.
+     * @throws Exception Falls was schief geht.
      */
-    public static void main(final String[] args) throws InterruptedException
+    public static void main(final String[] args) throws Exception
     {
         JFrame frame = new JFrame("Test-ListModel");
         frame.addWindowListener(new WindowAdapter()

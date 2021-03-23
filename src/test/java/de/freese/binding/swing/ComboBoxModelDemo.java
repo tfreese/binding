@@ -9,8 +9,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
+
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
+
 import de.freese.binding.collections.DefaultObservableList;
 import de.freese.binding.collections.ObservableList;
 import de.freese.binding.swing.combobox.DefaultObservableListComboBoxModel;
@@ -22,9 +24,9 @@ public class ComboBoxModelDemo
 {
     /**
      * @param args String[]
-     * @throws InterruptedException Falls was schief geht.
+     * @throws Exception Falls was schief geht.
      */
-    public static void main(final String[] args) throws InterruptedException
+    public static void main(final String[] args) throws Exception
     {
         JFrame frame = new JFrame("Test-ComboBoxModel");
         frame.addWindowListener(new WindowAdapter()
